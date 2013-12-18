@@ -1,4 +1,6 @@
 SimpleBlog::Application.routes.draw do
+  resources :comments
+
   resources :categories
 
   resources :blogs
