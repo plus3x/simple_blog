@@ -3,8 +3,8 @@ class CreateBlogs < ActiveRecord::Migration
     create_table :blogs do |t|
       t.string :title
       t.text :description
-      t.references :author, index: true
-      t.references :category, index: true
+      t.belongs_to :author
+      t.belongs_to :category
 
       t.timestamps
     end
