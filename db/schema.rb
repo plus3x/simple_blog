@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131218191817) do
+ActiveRecord::Schema.define(version: 20131218221704) do
 
   create_table "blogs", force: true do |t|
     t.string   "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20131218191817) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "rating"
   end
 
   create_table "categories", force: true do |t|
