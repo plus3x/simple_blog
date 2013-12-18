@@ -1,14 +1,18 @@
 SimpleBlog::Application.routes.draw do
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/destroy"
-  resources :comments
-
-  resources :categories
-
-  resources :blogs
+  
+  root to: 'blog#index', as: 'blog'
 
   resources :users
+  
+  controller :sessions do
+    get    'login'  => :new
+    post   'login'  => :create
+    delete 'logout' => :destroy
+  end
+  
+  resources :comments
+  resources :categories
+  resources :blogs
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

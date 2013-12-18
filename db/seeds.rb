@@ -5,3 +5,27 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Role.destroy_all
+roles = Role.create([ 
+  {title: "admin"},
+  {title: "client"}
+])
+if roles[0].save and roles[1].save
+  puts "Default roles: " + roles.map(&:title).join(', ')
+else
+  puts '>>> Roles not created!'
+end
+
+User.destroy_all
+users = User.create([
+  {role_id: roles[0], name: 'admin',  password: 'admin',  password_confirmation: 'admin'},
+  {role_id: roles[1], name: 'client', password: 'client', password_confirmation: 'client'}
+])
+if users[0].save and users[1].save
+  puts "Default users: " + users.map(&:name).join(', ')
+else
+  puts '>>> User not created!'
+end
+admin  = users[0]
+client = users[1]
