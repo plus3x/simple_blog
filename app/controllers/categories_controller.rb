@@ -1,10 +1,12 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorize, only: [:index, :show]
 
   # GET /categories
   # GET /categories.json
   def index
     @categories = Category.all
+    @blogs = Blog.order(:rating).reverse.first 10
   end
 
   # GET /categories/1

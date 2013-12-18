@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
           redirect_to blog_url, notice: 'You no have permissions to do this.'
         end
       else
-        redirect_to blog_url, notice: 'Please log in'
+        redirect_to login_url, notice: 'Please log in'
       end
     end
 end

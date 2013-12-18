@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>SimpleBlog</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>Simple Blog</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body id="<%= controller.controller_name %>_page">
+    <div id="banner">
+      <% image_tag("logo.png") %>
+      <span id='title'>
+        <%= @page_title || 'Blog' %>
+      </span>
+      <div id="login">
+        <% if session[:user_id] %>
+          You may <%= link_to 'Sign out or log out', logout_url, method: :delete %> here.<br/>
+          <%= "Hello #{User.find(session[:user_id]).name}" %>
+        <% else %>
+          <%= link_to 'Log in or sign in', login_path %>
+        <% end %>
+        <% if (current_user.admin? rescue false) %>
+          <li><%= link_to_unless_current 'Users', users_path %></li>
+        <% end %>
+      </div>
+    </div>
+    <div id="columns">
+      <div id="main"> 
+        <% if notice %>
+          <p id="notice"><%= notice %></p>
+        <% end %>
+    
+        <%= yield %>
+    
+      </div>
+    </div>
+  </body>
 </html>
