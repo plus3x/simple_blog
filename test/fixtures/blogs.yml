@@ -3,11 +3,11 @@
 one:
   title: MyString
   description: MyText
-  author_id: 
-  category_id: 
+  author: client
+  category: one
 
 two:
   title: MyString
   description: MyText
-  author_id: 
-  category_id: 
+  author: admin
+  category: one

@@ -3,5 +3,5 @@ class Blog < ActiveRecord::Base
   belongs_to :category
   has_many :comments, dependent: :delete_all
   
-  validates_associated :author, :category
+  validates_associated :category
 end

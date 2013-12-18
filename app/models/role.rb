@@ -8,7 +8,7 @@ class Role < ActiveRecord::Base
       when 'client'
         request_to controller: [:sessions] or
         request_to controller: [:blogs], action: [:show, :new, :create] or
-        request_to controller: [:commenta], action: [:new, :create]
+        request_to controller: [:comments], action: [:new, :create]
       else
         false
       end

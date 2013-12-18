@@ -2,6 +2,7 @@ require 'test_helper'
 
 class CategoriesControllerTest < ActionController::TestCase
   setup do
+    login_as :admin
     @category = categories(:one)
   end
 

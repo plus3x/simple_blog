@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
+admin:
+  name: admin
   password_digest: <%= BCrypt::Password.create('secret') %>
-  role_id: 
+  role: admin
 
-two:
-  name: MyString
+client:
+  name: client
   password_digest: <%= BCrypt::Password.create('secret') %>
-  role_id: 
+  role: client

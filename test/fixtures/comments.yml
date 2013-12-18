@@ -2,12 +2,12 @@
 
 one:
   description: MyText
-  author_id: 
+  author: client
   rating: 1
-  blog_id: 
+  blog: one
 
 two:
   description: MyText
-  author_id: 
+  author: client
   rating: 1
-  blog_id: 
+  blog: two

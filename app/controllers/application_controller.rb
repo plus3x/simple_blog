@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
     def authorize
       if current_user
         unless current_user.can?(params[:controller], params[:action])
-          redirect_to root_url, notice: 'You no have permissions to do this.'
+          redirect_to blog_url, notice: 'You no have permissions to do this.'
         end
       else
-        redirect_to root_url, notice: 'Please log in'
+        redirect_to blog_url, notice: 'Please log in'
       end
     end
 end
