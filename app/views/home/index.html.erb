@@ -1,0 +1,8 @@
+<div id='best_blogs'>
+  <h1>Best ten!</h1>
+  <% cache @blogs do %>
+    <ul>
+      <%= render @blogs %>
+    </ul>
+  <% end %>
+</div>

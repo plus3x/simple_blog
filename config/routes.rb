@@ -1,6 +1,6 @@
 SimpleBlog::Application.routes.draw do
   
-  root to: 'categories#index', as: 'category'
+  root to: 'home#index', as: 'home'
 
   resources :users
   
