@@ -1,8 +1,9 @@
 <% cache blog do %>
   <li>
-    <%= link_to blog.title, blog %>
-    <%= blog.description %>
-    <%= blog.author %>
+    <%= link_to blog.title, blog %><br/>
+    <%= blog.rating %><br/>
+    <%= blog.description %><br/>
+    <%= blog.author.name %><br/>
     <%= blog.created_at %>
   </li>
 <% end %>

@@ -1,9 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<div id="category_menu">
+  <% cache @categories do %>
+    <ul>
+      <li><%= link_to_unless_current 'All', categories_path %></li>
+      <%= render @categories %>
+    </ul>
+  <% end %>
+</div>
+<% cache @blogs do %>
+  <ul id='blogs'>
+    <%= render @blogs %>
+  </ul>
+<% end %>

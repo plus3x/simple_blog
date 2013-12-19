@@ -1,3 +1,32 @@
 // Place all the styles related to the Categories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#category_menu {
+  padding: 0;
+  width: 100%;
+  background: #aaa;
+  border: 1px solid #777;
+  border-radius: 10px;
+  ul {
+    padding: 1px 10px;
+    margin: 0;
+    li {
+      align: center;
+      display: inline;
+      list-style: none;
+      color: #000;
+      background: #aaa;
+      font: small-caps 24px/24px "Times New Roman", serif;
+      padding: 0px 25px;
+      a {
+        color: #fff;
+        margin: 0 -28px;
+        padding: 0px 25px;
+        background: #777;
+        text-decoration: none;
+        &:hover { color: #000; background: #aaa; }
+      }
+    }
+  }
+}

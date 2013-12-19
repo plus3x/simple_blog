@@ -19,12 +19,18 @@
         <% else %>
           <%= link_to 'Log in or sign in', login_path %>
         <% end %>
-        <% if (current_user.admin? rescue false) %>
-          <li><%= link_to_unless_current 'Users', users_path %></li>
-        <% end %>
       </div>
     </div>
     <div id="columns">
+      <div id="side">
+        <ul>
+          <li><%= link_to_unless_current 'Home', home_path %></li>
+          <li><%= link_to_unless_current 'Categories', categories_path %></li>
+          <% if (current_user.admin? rescue false) %>
+            <li><%= link_to_unless_current 'Users', users_path %></li>
+          <% end %>
+        </ul>
+      </div>
       <div id="main"> 
         <% if notice %>
           <p id="notice"><%= notice %></p>
