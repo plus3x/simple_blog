@@ -29,3 +29,31 @@ else
 end
 admin  = users[0]
 client = users[1]
+
+Category.destroy_all
+categories = [
+  {name: 'Apples'},
+  {name: 'Mashrooms'},
+  {name: 'Papaia'}
+]
+puts "Default categories: "
+Category.create(categories).each do |category|
+  if category.save
+    puts category.name
+  else
+    puts '>>> Category not created!'
+  end
+end
+
+Blog.destroy_all
+blogs = [
+  {title: 'Apple', description: 'Nice fruit', category: Category.find_by(name: 'Apples'), author: client, rating: 4.5}
+]
+puts "Default blogs: "
+Blog.create!(blogs).each do |blog|
+  if blog.save
+    puts blog.title
+  else
+    puts '>>> Blog not created!'
+  end
+end
