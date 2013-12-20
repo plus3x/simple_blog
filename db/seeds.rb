@@ -64,9 +64,9 @@ end
 comments = Comment.all
 Blog.destroy_all
 blogs = [
-  {title: 'Apple',    description: 'Nice fruit',    category: Category.find_by(name: 'Apples'),    author: client, comment_ids: [comments[0].id], rating: comments[0][:rating]},
-  {title: 'Mashroom', description: 'Good mashroom', category: Category.find_by(name: 'Mashrooms'), author: client, comment_ids: [comments[1].id], rating: comments[1][:rating]},
-  {title: 'Papaia',   description: 'Good fruit',    category: Category.find_by(name: 'Papaia'),    author: admin,  comment_ids: [comments[2].id], rating: comments[2][:rating]}
+  {title: 'Apple',    description: 'Nice fruit',    category: Category.find_by(name: 'Apples'),    author: client, comment_ids: [comments[0].id], rating: 4},
+  {title: 'Mashroom', description: 'Good mashroom', category: Category.find_by(name: 'Mashrooms'), author: client, comment_ids: [comments[1].id], rating: 2},
+  {title: 'Papaia',   description: 'Good fruit',    category: Category.find_by(name: 'Papaia'),    author: admin,  comment_ids: [comments[2].id], rating: 5}
 ]
 puts "Default blogs: "
 Blog.create!(blogs).each do |blog|

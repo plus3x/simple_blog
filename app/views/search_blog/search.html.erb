@@ -2,7 +2,7 @@
   <% if notice %>
     <p id="notice"><%= notice %></p> 
   <% end %>
-  <%= form_for :search_blog, remote: true do |f| %>
+  <%= form_for :search_blog do |f| %>
     <fieldset>
       <legend>Search</legend>
       <div>
@@ -10,7 +10,7 @@
                  up: <%= f.select :rating_up,   options_for_select((1..5).step(0.5)) %>
       </div>
       <div>
-        Date: <%= f.date_select :date %>
+        Date: <%= f.date_field :date, placeholder: '20.12.2013' %>
       </div>
       <div>
         <%= submit_tag "Find" %> 
@@ -18,6 +18,3 @@
     </fieldset> 
   <% end %>
 </div>
-<ul id='blogs'>
-  <%= render @blogs if @blogs %>
-</ul>
