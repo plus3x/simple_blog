@@ -3,7 +3,7 @@ require 'test_helper'
 class SessionsControllerTest < ActionController::TestCase
   test "should login" do
     post :create, name: users(:client).name, password: 'secret'
-    assert_redirected_to blog_url
+    assert_redirected_to home_url
     assert_equal users(:client).id, session[:user_id]
   end
 
@@ -14,12 +14,12 @@ class SessionsControllerTest < ActionController::TestCase
 
   test "should get create" do
     get :create, name: users(:client).name, password: 'secret'
-    assert_redirected_to blog_url
+    assert_redirected_to home_url
   end
 
   test "should logout if logged in" do
     login_as :client
     delete :destroy
-    assert_redirected_to blog_url
+    assert_redirected_to home_url
   end
 end

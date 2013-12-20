@@ -37,6 +37,7 @@ class BlogsControllerTest < ActionController::TestCase
   end
 
   test "should update blog" do
+    login_as :admin
     patch :update, id: @blog, blog: { author_id: @blog.author_id, category_id: @blog.category_id, description: @blog.description, title: @blog.title }
     assert_redirected_to blog_path(assigns(:blog))
   end
