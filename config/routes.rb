@@ -13,6 +13,9 @@ SimpleBlog::Application.routes.draw do
   resources :comments
   resources :categories
   resources :blogs
+  
+  get  "search_blog/search"
+  post "search_blog/find"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
