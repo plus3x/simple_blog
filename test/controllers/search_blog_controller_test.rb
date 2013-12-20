@@ -7,7 +7,7 @@ class SearchBlogControllerTest < ActionController::TestCase
   end
 
   test "should post find blog" do
-    post :find, search_blog: {rating_up: 5, rating_down: 2, date: '20.12.2013'}
+    xhr :post, :find, search_blog: {rating_up: 5, rating_down: 2, date: '20.12.2013'.to_date}
     assert_response :success
     assert_not assigns(:blogs) == blogs(:one), 'Blog not found!'
   end

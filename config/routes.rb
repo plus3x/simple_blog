@@ -15,8 +15,8 @@ SimpleBlog::Application.routes.draw do
   resources :blogs
   
   controller :search_blog do
-    get 'search_blog' => :search
-    post  'find_blog' => :find
+    get  'search_blog' => :search
+    post 'search_blog' => :find
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

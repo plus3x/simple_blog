@@ -8,10 +8,10 @@ class SearchBlogController < ApplicationController
   # POST /find_blog?rating_up=5&rating_down=2&date=20.12.2013
   def find
     @blogs = Blog.select do |blog| 
-        (blog.rating > search_blog_params[:rating_down].to_i) and 
-        (blog.rating < search_blog_params[:rating_up].to_i)   and
-        (blog.created_at == search_blog_params[:date])
-      end
+      (blog.rating > search_blog_params[:rating_down].to_i) and 
+      (blog.rating < search_blog_params[:rating_up].to_i)   and
+      (blog.created_at == search_blog_params[:date])
+    end
   end
   
   private

@@ -1,2 +1,23 @@
-<h1>SearchBlog#search</h1>
-<p>Find me in app/views/search_blog/search.html.erb</p>
+<div id="search_form"> 
+  <% if notice %>
+    <p id="notice"><%= notice %></p> 
+  <% end %>
+  <%= form_for :search_blog, remote: true do |f| %>
+    <fieldset>
+      <legend>Search</legend>
+      <div>
+        Rating down: <%= f.select :rating_down, options_for_select((1..5).step(0.5)) %>
+                 up: <%= f.select :rating_up,   options_for_select((1..5).step(0.5)) %>
+      </div>
+      <div>
+        Date: <%= f.date_select :date %>
+      </div>
+      <div>
+        <%= submit_tag "Find" %> 
+      </div>
+    </fieldset> 
+  <% end %>
+</div>
+<ul id='blogs'>
+  <%= render @blogs if @blogs %>
+</ul>
