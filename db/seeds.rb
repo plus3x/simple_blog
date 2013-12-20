@@ -45,9 +45,28 @@ Category.create(categories).each do |category|
   end
 end
 
+
+Comment.destroy_all
+comments = [
+  {description: 'Nice fruit',    author: client, rating: 4},
+  {description: 'Good mashroom', author: client, rating: 5},
+  {description: 'Good fruit',    author: admin,  rating: 3}
+]
+puts "Default comments: "
+Comment.create!(comments).each do |comment|
+  if comment.save
+    puts comment.author.name
+  else
+    puts '>>> Comment not created!'
+  end
+end
+
+comments = Comment.all
 Blog.destroy_all
 blogs = [
-  {title: 'Apple', description: 'Nice fruit', category: Category.find_by(name: 'Apples'), author: client, rating: 4.5}
+  {title: 'Apple',    description: 'Nice fruit',    category: Category.find_by(name: 'Apples'),    author: client, comment_ids: [comments[0].id], rating: comments[0][:rating]},
+  {title: 'Mashroom', description: 'Good mashroom', category: Category.find_by(name: 'Mashrooms'), author: client, comment_ids: [comments[1].id], rating: comments[1][:rating]},
+  {title: 'Papaia',   description: 'Good fruit',    category: Category.find_by(name: 'Papaia'),    author: admin,  comment_ids: [comments[2].id], rating: comments[2][:rating]}
 ]
 puts "Default blogs: "
 Blog.create!(blogs).each do |blog|

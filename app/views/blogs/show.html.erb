@@ -6,19 +6,28 @@
 </p>
 
 <p>
+  <strong>Rating:</strong>
+  <%= @blog.rating %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @blog.description %>
 </p>
 
 <p>
   <strong>Author:</strong>
-  <%= @blog.author %>
+  <%= @blog.author.name %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @blog.category %>
+  <%= @blog.category.name %>
 </p>
 
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<% cache @blog.comments do %>
+  <h3>Comments: </h3>
+  <ul id='comments'>
+    <%= render @blog.comments %>
+  </ul>
+<% end %>
